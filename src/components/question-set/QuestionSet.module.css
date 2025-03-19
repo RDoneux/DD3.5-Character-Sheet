@@ -1,0 +1,13 @@
+.container {
+  padding-top: 20px;
+
+  .scrollable-content-wrapper {
+    display: flex;
+    overflow-x: scroll;
+    width: 100%;
+
+    .scrollable-content {
+      /* width: 100%; */
+    }
+  }
+}
