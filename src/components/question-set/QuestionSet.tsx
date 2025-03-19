@@ -18,6 +18,10 @@ export default function QuestionSet({ title, children }: QuestionSetProps) {
           <div className={styles['scrollable-content']}>{child}</div>
         ))}
       </div>
+      <footer>
+        <button>Back</button>
+        <button>Next</button>
+      </footer>
     </div>
   );
 }

@@ -3,11 +3,11 @@
 
   .scrollable-content-wrapper {
     display: flex;
-    overflow-x: scroll;
+    overflow-x: hidden;
     width: 100%;
 
     .scrollable-content {
-      /* width: 100%; */
+      min-width: 100%;
     }
   }
 }
