@@ -15,11 +15,14 @@
     "prettier:ci": "prettier . --check"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/material": "^6.4.8",
     "axios": "^1.7.7",
+    "dd3.5-character-sheet": "file:",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.26.2",
-    "dd3.5-character-sheet": "file:"
+    "react-router-dom": "^6.26.2"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.25.4",
