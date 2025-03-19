@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -5,7 +9,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* background-color: #000000; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -18,4 +22,10 @@ body,
   width: 100vw;
   height: 100vh;
   margin: 0;
+}
+
+body {
+  font-family: 'IM Fell English SC', serif;
+  font-weight: 400;
+  font-style: normal;
 }
