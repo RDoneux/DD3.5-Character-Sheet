@@ -5,11 +5,7 @@ pipeline {
     environment {
         DOCKER_IMAGE = 'rdoneux/dd3.5-cs-spa'
         RAILWAY_TOKEN = credentials("DD_RAILWAY_TOKEN")
-        RAILWAY_SERVICE_ID = 'fa8512e5-8a40-4e96-aa0c-2fbbc0091348'
-        // PULUMI_STACK_BUCKET = "tplt-web-spa-pulumi?region=eu-west-2"
-
-        // can use "pulumi stack -Q" to find this
-        // PULUMI_STACK = "organization/tplt-web-spa/dev"
+        RAILWAY_SERVICE_ID = 'e4c0bdcd-6f77-4bab-ad43-95a41a6a57b3'
     }
 
     stages {
