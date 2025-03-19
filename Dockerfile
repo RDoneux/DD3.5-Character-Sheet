@@ -1,25 +1,40 @@
-FROM node:22 AS build
+# Use the Node alpine official image
+# https://hub.docker.com/_/node
+FROM node:lts-alpine AS build
 
+# Set config
+ENV NPM_CONFIG_UPDATE_NOTIFIER=false
+ENV NPM_CONFIG_FUND=false
+
+# Create and change to the app directory.
 WORKDIR /app
 
-COPY package.json ./
-COPY package-lock.json ./
+# Copy the files to the container image
+COPY package*.json ./
 
-RUN npm install
+# Install packages
+RUN npm ci
 
-COPY . .
+# Copy local code to the container image.
+COPY . ./
 
+# Build the app.
 RUN npm run build
 
-FROM node:16
+# Use the Caddy image
+FROM caddy
 
+# Create and change to the app directory.
 WORKDIR /app
 
-# copy build files only
-COPY --from=build /app/dist/bundle /app
+# Copy Caddyfile to the container image.
+COPY Caddyfile ./
 
-RUN npm install -g serve
+# Copy local code to the container image.
+RUN caddy fmt Caddyfile --overwrite
 
-EXPOSE 3000
+# Copy files to the container image.
+COPY --from=build /app/dist/bundle ./dist
 
-CMD ["serve", "-s", ".", "-l", "3000"]
+# Use Caddy to run/serve the app
+CMD ["caddy", "run", "--config", "Caddyfile", "--adapter", "caddyfile"]
