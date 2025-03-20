@@ -1,26 +1,44 @@
-import React, { PropsWithChildren } from 'react';
+import { Children, ReactElement } from 'react';
 import styles from './QuestionSet.module.css';
 import Title from './title/Title';
+import { QuestionProps } from './question/Question';
+import useQuestionSequencer from './UseQuestionSequencer';
+import { Button } from '@mui/material';
 
-interface QuestionSetProps extends PropsWithChildren {
+interface QuestionSetProps {
   title: string;
+  children: ReactElement<QuestionProps>[];
 }
 
 export default function QuestionSet({ title, children }: QuestionSetProps) {
+  const { increment, decrement, currentQuestionIndex } = useQuestionSequencer({
+    questionIds: Children.map(children, (child) => {
+      return (child as ReactElement).props.id;
+    })
+  });
+
+  const childrenLength = Children.count(children) - 1;
+
   return (
     <div className={styles['container']}>
       <Title title={title} />
-      <div
-        style={{ width: `${React.Children.count(children)}00%` }}
-        className={styles['scrollable-content-wrapper']}
-      >
-        {React.Children.map(children, (child) => (
-          <div className={styles['scrollable-content']}>{child}</div>
-        ))}
-      </div>
-      <footer>
-        <button>Back</button>
-        <button>Next</button>
+      <div className={styles['scrollable-content-wrapper']}>{children}</div>
+      <footer className={styles['footer']}>
+        <Button
+          disabled={currentQuestionIndex === 0}
+          onClick={decrement}
+          variant="outlined"
+        >
+          Back
+        </Button>
+
+        <Button
+          disabled={currentQuestionIndex === childrenLength}
+          onClick={increment}
+          variant="outlined"
+        >
+          Next
+        </Button>
       </footer>
     </div>
   );

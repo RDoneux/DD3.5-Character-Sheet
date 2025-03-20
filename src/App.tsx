@@ -11,6 +11,23 @@ const theme = createTheme({
   typography: {
     fontFamily: '"IM FELL English SC", serif'
   },
+  components: {
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          '&.Mui-focused': {
+            borderColor: 'green' // Color when the TextField is focused
+          },
+          '&:hover': {
+            borderColor: 'blue' // Color when hovering
+          },
+          '& .MuiOutlinedInput-notchedOutline': {
+            borderColor: '#917136' // Default border color
+          }
+        }
+      }
+    }
+  },
   palette: {
     primary: {
       main: '#917136'
