@@ -1,9 +1,0 @@
-.character-name {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-
-  input {
-    padding: 5px;
-  }
-}

@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  padding: 10px;
+
+  border: 1px solid #7b6b5a;
+  border-radius: 10px;
+
+  background: linear-gradient(145deg, #221d1b, #4b3c36);
+  cursor: pointer;
+  &:hover,
+  &:active {
+    border: 1px solid red;
+  }
+
+  /* 221d1b 4b3c36 */
+  .image {
+    width: 100%;
+    border: 2px solid rgba(0, 0, 0, 0.61);
+    border-radius: 3px;
+  }
+  .name {
+    font-size: 18px;
+    text-align: center;
+  }
+}

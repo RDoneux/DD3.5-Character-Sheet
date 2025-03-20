@@ -2,13 +2,10 @@ import {
   FormControl,
   FormControlLabel,
   Radio,
-  RadioGroup,
-  TextField
+  RadioGroup
 } from '@mui/material';
 import Question from '../../components/question-set/question/Question';
 import QuestionSet from '../../components/question-set/QuestionSet';
-import ShuffleOnIcon from '@mui/icons-material/ShuffleOn';
-import styles from './CharacterBasics.module.css';
 import { useEffect, useReducer } from 'react';
 import {
   CharacterBasicsInitialState,
@@ -16,6 +13,8 @@ import {
   updateGender,
   updateName
 } from './reducers/CharacterBasicsReducer';
+import CharacterName from './questions/character-name/CharacterName';
+import Race from './questions/race/Race';
 
 export type CharacterGender = 'male' | 'female' | 'other' | '';
 export interface CharacterBasics {
@@ -50,18 +49,10 @@ export default function CharacterBasics() {
         </div>
       </Question>
       <Question id="character-name">
-        <p>What is your character's name?</p>
-        <p>You will be role playing this character, choose wisely...</p>
-        <div className={styles['character-name']}>
-          <TextField
-            variant="outlined"
-            fullWidth
-            onChange={(event) => dispatch(updateName(event.target.value))}
-          >
-            {state.name}
-          </TextField>
-          <ShuffleOnIcon color="primary" fontSize="large" />
-        </div>
+        <CharacterName
+          name={state.name}
+          onChange={(name: string) => dispatch(updateName(name))}
+        />
       </Question>
       <Question id="character-gender">
         <p>What gender is {state.name}?</p>
@@ -94,6 +85,10 @@ export default function CharacterBasics() {
             />
           </RadioGroup>
         </FormControl>
+      </Question>
+
+      <Question id="race">
+        <Race characterName={state.name} />
       </Question>
     </QuestionSet>
   );
