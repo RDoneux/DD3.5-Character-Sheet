@@ -11,15 +11,17 @@ import {
   CharacterBasicsInitialState,
   CharacterBasicsReducer,
   updateGender,
-  updateName
+  updateName,
+  updateRace
 } from './reducers/CharacterBasicsReducer';
 import CharacterName from './questions/character-name/CharacterName';
-import Race from './questions/race/Race';
+import Race, { RaceCardDetails } from './questions/race/Race';
 
 export type CharacterGender = 'male' | 'female' | 'other' | '';
 export interface CharacterBasics {
   name: string;
   gender: CharacterGender;
+  race: string;
 }
 
 export default function CharacterBasics() {
@@ -88,7 +90,11 @@ export default function CharacterBasics() {
       </Question>
 
       <Question id="race">
-        <Race characterName={state.name} />
+        <Race
+          characterName={state.name}
+          race={state.race}
+          onChange={(race: RaceCardDetails) => dispatch(updateRace(race.name))}
+        />
       </Question>
     </QuestionSet>
   );

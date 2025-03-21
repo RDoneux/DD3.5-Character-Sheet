@@ -1,7 +1,8 @@
 .container {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
   justify-content: center;
   padding: 10px;
 
@@ -10,12 +11,24 @@
 
   background: linear-gradient(145deg, #221d1b, #4b3c36);
   cursor: pointer;
-  &:hover,
-  &:active {
-    border: 1px solid red;
+
+  transition: transform 0.1s linear;
+
+  &.active {
+    transform: scale(1.05);
+    background: linear-gradient(145deg, #382f2b, #665047);
   }
 
-  /* 221d1b 4b3c36 */
+  &:not(.active) {
+    filter: brightness(0.8);
+  }
+
+  svg {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+  }
+
   .image {
     width: 100%;
     border: 2px solid rgba(0, 0, 0, 0.61);
@@ -24,5 +37,28 @@
   .name {
     font-size: 18px;
     text-align: center;
+  }
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background: linear-gradient(145deg, #221d1b, #4b3c36);
+  width: 90%;
+  margin: auto;
+  padding: 5px 20px 5px 20px;
+
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+
+  border-radius: 5px;
+
+  .image {
+    width: 100%;
+    border: 2px solid rgba(0, 0, 0, 0.61);
+    border-radius: 3px;
   }
 }

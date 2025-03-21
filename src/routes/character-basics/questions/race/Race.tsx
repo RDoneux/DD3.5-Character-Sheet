@@ -1,10 +1,6 @@
 import RaceCard from '../../components/RaceCard';
 import styles from './Race.module.css';
 
-interface RaceProps {
-  characterName: string;
-}
-
 const races: RaceCardDetails[] = [
   {
     name: 'Human',
@@ -56,7 +52,13 @@ export interface RaceCardDetails {
   image: string;
 }
 
-export default function Race({ characterName }: RaceProps) {
+interface RaceProps {
+  characterName: string;
+  race: string;
+  onChange: (card: RaceCardDetails) => void;
+}
+
+export default function Race({ characterName, race, onChange }: RaceProps) {
   return (
     <>
       <p>What race is {characterName}?</p>
@@ -66,7 +68,12 @@ export default function Race({ characterName }: RaceProps) {
       </p>
       <div className={styles['race-card-wrapper']}>
         {races.map((cardDetails: RaceCardDetails) => (
-          <RaceCard raceCardDetails={cardDetails} />
+          <RaceCard
+            race={race}
+            key={cardDetails.name}
+            raceCardDetails={cardDetails}
+            onClick={onChange}
+          />
         ))}
       </div>
     </>
