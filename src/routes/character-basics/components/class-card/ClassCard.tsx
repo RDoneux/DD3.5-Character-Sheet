@@ -1,13 +1,13 @@
 import { Modal } from '@mui/material';
-import { ClassCardDetails } from '../../questions/class/Class';
 import styles from './ClassCard.module.css';
 import InfoIcon from '@mui/icons-material/Info';
 import { useState } from 'react';
+import { ClassRole } from '../../../../interfaces/Class';
 
 interface ClassCardProps {
-  classCardDetails: ClassCardDetails;
+  classCardDetails: ClassRole;
   clazz: string;
-  onClick: (classCardDetails: ClassCardDetails) => void;
+  onClick: (classCardDetails: ClassRole) => void;
 }
 
 export default function ClassCard({

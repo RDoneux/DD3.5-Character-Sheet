@@ -1,3 +1,4 @@
+import { ClassRole } from '../../../interfaces/Class';
 import { Race } from '../../../interfaces/Race';
 import { CharacterBasics, CharacterGender } from '../CharacterBasics';
 
@@ -16,7 +17,19 @@ export const CharacterBasicsInitialState: CharacterBasics = {
     weaponProficiencies: [],
     otherModifiers: []
   },
-  clazz: ''
+  clazz: {
+    name: '',
+    description: '',
+    image: '',
+    alignmentsNotAllowed: [],
+    hitPoints: 0,
+    hitPointsIncreasePerLevel: '',
+    languages: [],
+    weaponProficiencies: [],
+    armourProficiencies: [],
+    extraordinaryAbilities: [],
+    other: []
+  }
 };
 
 interface CharacterBasicsReducerAction {
@@ -45,7 +58,7 @@ export function CharacterBasicsReducer(
     case CharacterBasicsReducerType.UPDATE_RACE:
       return { ...state, race: JSON.parse(action.payload) };
     case CharacterBasicsReducerType.UPDATE_CLASS:
-      return { ...state, clazz: action.payload };
+      return { ...state, clazz: JSON.parse(action.payload) };
     default:
       return state;
   }
@@ -68,6 +81,9 @@ export function updateRace(race: Race): CharacterBasicsReducerAction {
   };
 }
 
-export function updateClass(clazz: string): CharacterBasicsReducerAction {
-  return { type: CharacterBasicsReducerType.UPDATE_CLASS, payload: clazz };
+export function updateClass(clazz: ClassRole): CharacterBasicsReducerAction {
+  return {
+    type: CharacterBasicsReducerType.UPDATE_CLASS,
+    payload: JSON.stringify(clazz)
+  };
 }

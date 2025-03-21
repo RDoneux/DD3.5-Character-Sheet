@@ -2,7 +2,7 @@ export interface Race {
   name: string;
   description: string;
   image: string;
-  size: RaceSize;
+  size: RaceSizeType;
   landSpeed: number;
   abilityAdjustments: Partial<RaceAbilities>;
   modifiers: Partial<Modifiers>;
@@ -20,9 +20,9 @@ export interface RaceAbilities {
   charisma: number;
 }
 
-export interface Modifiers {
-  skillPoints: number;
-  feats: number;
-}
+export type Modifiers = {
+  [key in ModifierType]: number;
+};
 
-export type RaceSize = 'small' | 'medium' | 'large';
+export type ModifierType = 'skillPoints' | 'feats';
+export type RaceSizeType = 'small' | 'medium' | 'large';

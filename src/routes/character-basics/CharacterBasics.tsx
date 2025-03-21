@@ -16,17 +16,20 @@ import {
   updateRace
 } from './reducers/CharacterBasicsReducer';
 import CharacterName from './questions/character-name/CharacterName';
-import Class, { ClassCardDetails } from './questions/class/Class';
+import Class from './questions/class/Class';
 import Summary from './questions/summary/Summary';
 import { Race } from '../../interfaces/Race';
 import RaceQuestion from './questions/race/RaceQuestion';
+import { save } from '../../utils/PersistantStorage';
+import { ClassRole } from '../../interfaces/Class';
+import { useNavigate } from 'react-router-dom';
 
 export type CharacterGender = 'male' | 'female' | 'other' | '';
 export interface CharacterBasics {
   name: string;
   gender: CharacterGender;
   race: Race;
-  clazz: string;
+  clazz: ClassRole;
 }
 
 export default function CharacterBasics() {
@@ -35,12 +38,14 @@ export default function CharacterBasics() {
     CharacterBasicsInitialState
   );
 
+  const navigate = useNavigate();
+
   useEffect(() => {
-    console.log(state);
+    save('character-basics', state);
   }, [state]);
 
   return (
-    <QuestionSet title="Character Basics">
+    <QuestionSet title="Character Basics" onProceed={() => navigate('/')}>
       <Question id="landing">
         <div id="character-basics">
           <p>
@@ -105,10 +110,8 @@ export default function CharacterBasics() {
       <Question id="class">
         <Class
           characterName={state.name}
-          clazz={state.clazz}
-          onChange={(clazz: ClassCardDetails) =>
-            dispatch(updateClass(clazz.name))
-          }
+          clazz={state.clazz.name}
+          onChange={(clazz: ClassRole) => dispatch(updateClass(clazz))}
         />
       </Question>
 
