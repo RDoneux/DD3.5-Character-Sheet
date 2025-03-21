@@ -1,0 +1,16 @@
+.attributes-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+
+  h1 {
+    font-size: 16px;
+    padding: 0 25px;
+  }
+
+  .race-attributes,
+  .class-attributes {
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -13,8 +13,6 @@ export default function Title({ title }: TitleProps) {
         display: 'inline-block',
         fontSize: '24px',
         padding: '0 50px 0 50px',
-        // width: '100%',
-        // maxWidth: '400px',
         color: '#D5CAA0',
         textAlign: 'center',
         '&::after': {

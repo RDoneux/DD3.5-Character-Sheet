@@ -16,14 +16,16 @@ import {
   updateRace
 } from './reducers/CharacterBasicsReducer';
 import CharacterName from './questions/character-name/CharacterName';
-import Race, { RaceCardDetails } from './questions/race/Race';
 import Class, { ClassCardDetails } from './questions/class/Class';
+import Summary from './questions/summary/Summary';
+import { Race } from '../../interfaces/Race';
+import RaceQuestion from './questions/race/RaceQuestion';
 
 export type CharacterGender = 'male' | 'female' | 'other' | '';
 export interface CharacterBasics {
   name: string;
   gender: CharacterGender;
-  race: string;
+  race: Race;
   clazz: string;
 }
 
@@ -93,10 +95,10 @@ export default function CharacterBasics() {
       </Question>
 
       <Question id="race">
-        <Race
+        <RaceQuestion
           characterName={state.name}
-          race={state.race}
-          onChange={(race: RaceCardDetails) => dispatch(updateRace(race.name))}
+          race={state.race.name}
+          onChange={(race: Race) => dispatch(updateRace(race))}
         />
       </Question>
 
@@ -108,6 +110,10 @@ export default function CharacterBasics() {
             dispatch(updateClass(clazz.name))
           }
         />
+      </Question>
+
+      <Question id="summary">
+        <Summary state={state} />
       </Question>
     </QuestionSet>
   );

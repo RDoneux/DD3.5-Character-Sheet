@@ -1,9 +1,21 @@
+import { Race } from '../../../interfaces/Race';
 import { CharacterBasics, CharacterGender } from '../CharacterBasics';
 
 export const CharacterBasicsInitialState: CharacterBasics = {
   name: '',
   gender: '',
-  race: '',
+  race: {
+    name: '',
+    description: '',
+    image: '',
+    size: 'medium',
+    landSpeed: 0,
+    abilityAdjustments: {},
+    modifiers: {},
+    levelModifier: {},
+    weaponProficiencies: [],
+    otherModifiers: []
+  },
   clazz: ''
 };
 
@@ -31,7 +43,7 @@ export function CharacterBasicsReducer(
     case CharacterBasicsReducerType.UPDATE_GENDER:
       return { ...state, gender: action.payload as CharacterGender };
     case CharacterBasicsReducerType.UPDATE_RACE:
-      return { ...state, race: action.payload };
+      return { ...state, race: JSON.parse(action.payload) };
     case CharacterBasicsReducerType.UPDATE_CLASS:
       return { ...state, clazz: action.payload };
     default:
@@ -49,8 +61,11 @@ export function updateGender(
   return { type: CharacterBasicsReducerType.UPDATE_GENDER, payload: gender };
 }
 
-export function updateRace(race: string): CharacterBasicsReducerAction {
-  return { type: CharacterBasicsReducerType.UPDATE_RACE, payload: race };
+export function updateRace(race: Race): CharacterBasicsReducerAction {
+  return {
+    type: CharacterBasicsReducerType.UPDATE_RACE,
+    payload: JSON.stringify(race)
+  };
 }
 
 export function updateClass(clazz: string): CharacterBasicsReducerAction {

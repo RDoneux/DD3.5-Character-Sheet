@@ -1,13 +1,13 @@
 import { Modal } from '@mui/material';
-import { RaceCardDetails } from '../../questions/race/Race';
 import styles from './RaceCard.module.css';
 import { useState } from 'react';
 import InfoIcon from '@mui/icons-material/Info';
+import { Race } from '../../../../interfaces/Race';
 
 interface RaceCardProps {
-  raceCardDetails: RaceCardDetails;
+  raceCardDetails: Race;
   race: string;
-  onClick: (raceCardDetails: RaceCardDetails) => void;
+  onClick: (raceCardDetails: Race) => void;
 }
 
 export default function RaceCard({
