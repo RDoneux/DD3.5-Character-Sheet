@@ -1,4 +1,4 @@
-import RaceCard from '../../components/RaceCard';
+import RaceCard from '../../components/race-card/RaceCard';
 import styles from './Race.module.css';
 
 const races: RaceCardDetails[] = [

@@ -10,18 +10,21 @@ import { useEffect, useReducer } from 'react';
 import {
   CharacterBasicsInitialState,
   CharacterBasicsReducer,
+  updateClass,
   updateGender,
   updateName,
   updateRace
 } from './reducers/CharacterBasicsReducer';
 import CharacterName from './questions/character-name/CharacterName';
 import Race, { RaceCardDetails } from './questions/race/Race';
+import Class, { ClassCardDetails } from './questions/class/Class';
 
 export type CharacterGender = 'male' | 'female' | 'other' | '';
 export interface CharacterBasics {
   name: string;
   gender: CharacterGender;
   race: string;
+  clazz: string;
 }
 
 export default function CharacterBasics() {
@@ -94,6 +97,16 @@ export default function CharacterBasics() {
           characterName={state.name}
           race={state.race}
           onChange={(race: RaceCardDetails) => dispatch(updateRace(race.name))}
+        />
+      </Question>
+
+      <Question id="class">
+        <Class
+          characterName={state.name}
+          clazz={state.clazz}
+          onChange={(clazz: ClassCardDetails) =>
+            dispatch(updateClass(clazz.name))
+          }
         />
       </Question>
     </QuestionSet>

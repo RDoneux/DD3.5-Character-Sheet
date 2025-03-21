@@ -1,0 +1,11 @@
+.class-card-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  /* overflow-y: auto; */
+  padding-bottom: 20px;
+
+  h4 {
+    margin: 0;
+  }
+}

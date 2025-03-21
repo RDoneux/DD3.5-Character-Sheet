@@ -3,7 +3,8 @@ import { CharacterBasics, CharacterGender } from '../CharacterBasics';
 export const CharacterBasicsInitialState: CharacterBasics = {
   name: '',
   gender: '',
-  race: ''
+  race: '',
+  clazz: ''
 };
 
 interface CharacterBasicsReducerAction {
@@ -14,7 +15,8 @@ interface CharacterBasicsReducerAction {
 const CharacterBasicsReducerType = {
   UPDATE_NAME: 'update-name',
   UPDATE_GENDER: 'update-gender',
-  UPDATE_RACE: 'update-race'
+  UPDATE_RACE: 'update-race',
+  UPDATE_CLASS: 'update-class'
 } as const;
 type CharacterBasicsReducerType =
   (typeof CharacterBasicsReducerType)[keyof typeof CharacterBasicsReducerType];
@@ -30,6 +32,8 @@ export function CharacterBasicsReducer(
       return { ...state, gender: action.payload as CharacterGender };
     case CharacterBasicsReducerType.UPDATE_RACE:
       return { ...state, race: action.payload };
+    case CharacterBasicsReducerType.UPDATE_CLASS:
+      return { ...state, clazz: action.payload };
     default:
       return state;
   }
@@ -47,4 +51,8 @@ export function updateGender(
 
 export function updateRace(race: string): CharacterBasicsReducerAction {
   return { type: CharacterBasicsReducerType.UPDATE_RACE, payload: race };
+}
+
+export function updateClass(clazz: string): CharacterBasicsReducerAction {
+  return { type: CharacterBasicsReducerType.UPDATE_CLASS, payload: clazz };
 }

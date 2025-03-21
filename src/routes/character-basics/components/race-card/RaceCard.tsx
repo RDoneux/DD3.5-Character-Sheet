@@ -1,5 +1,5 @@
 import { Modal } from '@mui/material';
-import { RaceCardDetails } from '../questions/race/Race';
+import { RaceCardDetails } from '../../questions/race/Race';
 import styles from './RaceCard.module.css';
 import { useState } from 'react';
 import InfoIcon from '@mui/icons-material/Info';
