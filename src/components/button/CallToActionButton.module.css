@@ -1,0 +1,68 @@
+.cta {
+    width: 133pt;
+    height: 34pt;
+
+    background: linear-gradient(
+        to right, 
+        rgba(125, 63, 49, 0), 
+        rgba(125, 63, 49, 0.8),
+        rgba(125, 63, 49, 1), 
+        rgba(125, 63, 49, 0.8),
+        rgba(125, 63, 49, 0)
+    );
+
+    /* Text */
+    font-family: 'IM Fell English SC', serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 15pt;
+    color:#D5CAA0;
+
+    /* Border */
+    border: 2px solid;
+    border-image: linear-gradient(
+        to right, 
+        rgba(125, 63, 49, 0), 
+        rgba(213, 202, 160, 0.9),
+        rgba(145, 113, 54, 1), 
+        rgba(213, 202, 160, 0.9),
+        rgba(125, 63, 49, 0)
+    );
+    border-image-slice: 1;
+}
+
+.secondary {
+    background: linear-gradient(
+        to right, 
+        rgba(63, 59, 87, 0), 
+        rgba(63, 59, 87, 0.8),
+        rgba(63, 59, 87, 1), 
+        rgba(63, 59, 87, 0.8),
+        rgba(63, 59, 87, 0)
+    );
+}
+
+.disabled {
+    background: linear-gradient(
+        to right, 
+        rgba(156, 156, 156, 0), 
+        rgba(156, 156, 156, 0.3),
+        rgba(156, 156, 156, 0.4), 
+        rgba(156, 156, 156, 0.3),
+        rgba(156, 156, 156, 0)
+    );
+
+    /* Text */
+    color: #636363;
+
+    /* Border */
+    border-image: linear-gradient(
+        to right, 
+        rgba(125, 63, 49, 0), 
+        rgba(128, 128, 128, 0.9),
+        rgb(58, 58, 58), 
+        rgba(105, 105, 105, 0.9),
+        rgba(125, 63, 49, 0)
+    );
+    border-image-slice: 1;
+}

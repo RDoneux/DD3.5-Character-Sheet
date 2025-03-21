@@ -5,6 +5,7 @@ import Header from './components/header/Header';
 import styles from './App.module.css';
 import { ThemeProvider } from '@emotion/react';
 import { createTheme, CssBaseline } from '@mui/material';
+import Characters from './routes/characters/Characters';
 
 const theme = createTheme({
   typography: {
@@ -37,6 +38,7 @@ function App() {
           <div className={styles['content']}>
             <Routes>
               <Route index element={<Home />} />
+              <Route path="/characters" element={<Characters/>} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>

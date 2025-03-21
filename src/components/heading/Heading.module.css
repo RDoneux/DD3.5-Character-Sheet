@@ -1,0 +1,56 @@
+.heading {
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 15pt;   
+    width: 100%;
+
+    /* Text */
+    font-family: 'IM Fell English SC', serif;
+    font-weight: 400;
+    font-style: normal;
+    color:#D5CAA0;
+}
+
+.heading-S {
+    /* Text */
+    font-size: 12pt;
+    line-height: 12pt;
+
+    /* Spacing */
+    padding: 6pt;
+    padding-top: 6pt;
+}
+
+.heading-L {
+    /* Text */
+    font-size: 20pt;
+    line-height: 22pt;
+
+    /* Spacing */
+    padding: 8pt;
+    padding-top: 16pt;
+}
+
+.line {
+    width: 180pt;
+    height: 1pt;
+    background: linear-gradient(
+        to right, 
+        rgba(125, 63, 49, 0), 
+        rgba(213, 202, 160, 0.8),
+        rgba(213, 202, 160, 1),
+        rgba(213, 202, 160, 0.8),
+        rgba(125, 63, 49, 0)
+    );
+    border-radius: 2px;
+}
+
+.line-S {
+    height: 1pt;
+}
+
+.line-L {
+    height: 2pt;
+}
