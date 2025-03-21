@@ -1,14 +1,13 @@
 .container {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 100vh;
   width: 100%;
 
-  overflow-x: hidden;
+  overflow: hidden;
 
   .content {
     flex: 1 1 auto;
-    height: 100%;
-    width: 100%;
+    overflow: auto;
   }
 }

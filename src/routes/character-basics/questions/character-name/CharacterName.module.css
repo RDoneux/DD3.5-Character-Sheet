@@ -6,4 +6,8 @@
   input {
     padding: 5px;
   }
+
+  .shuffle-icon {
+    cursor: pointer;
+  }
 }

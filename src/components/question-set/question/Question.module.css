@@ -1,4 +1,5 @@
 .scrollable-content {
   min-width: 100vw;
+  flex: 1 1 auto;
   padding: 20px;
 }

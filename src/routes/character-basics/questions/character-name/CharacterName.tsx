@@ -21,6 +21,7 @@ export default function CharacterName({ name, onChange }: CharacterNameProps) {
           value={name}
         />
         <ShuffleOnIcon
+          className={styles['shuffle-icon']}
           color="primary"
           fontSize="large"
           onClick={() => onChange(generateFantasyName())}
