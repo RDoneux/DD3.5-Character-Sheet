@@ -1,0 +1,39 @@
+.button {
+    width: 100%;
+    margin: 0pt;
+    padding: 8pt;
+    margin: 8pt 0pt;
+    height: 60pt;
+    display: flex;
+    align-items: center;
+    border-radius: 8pt;
+
+    background: radial-gradient(
+        circle at 10% 300%,
+        #221D1B,
+        #382E2A,
+        #4B3C36
+    );
+
+    border-radius: 4pt;
+    border-color: #D5CAA0;
+    border-width: 1pt;   
+}
+
+.button:hover {
+    opacity: 0.9;
+}
+
+.selected {
+    border-width: 2pt;
+    box-shadow: 0 0 8pt 1pt rgba(145, 113, 54, 1);
+}
+
+.disabled {
+    border: none;
+    box-shadow: none;
+}
+
+.disabled:hover {
+    opacity: 1;
+}

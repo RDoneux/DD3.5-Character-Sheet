@@ -1,0 +1,34 @@
+/* Make sure the html/body don't scroll */
+:global(html), :global(body) {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.card-layout {
+  display: block;
+}
+
+.card-layout {
+  width: 100%;
+  height: 100%;
+
+  display: flex; /* use flex to help size the .card */
+
+  justify-content: center; /* optional: center horizontally */
+  align-items: center; /* optional: center vertically */
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background-color: aliceblue;
+}
+
+@media (max-width: 768px) {
+  .card-layout {
+    display: none;
+  }
+}
