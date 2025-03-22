@@ -1,0 +1,12 @@
+.race-card-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 11px 10px 20px 5px;
+
+  h4 {
+    margin: 0;
+  }
+}

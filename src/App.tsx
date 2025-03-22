@@ -5,11 +5,28 @@ import Header from './components/header/Header';
 import styles from './App.module.css';
 import { ThemeProvider } from '@emotion/react';
 import { createTheme, CssBaseline } from '@mui/material';
-import Characters from './routes/characters/Characters';
+import CharacterBasics from './routes/character-basics/CharacterBasics';
 
 const theme = createTheme({
   typography: {
     fontFamily: '"IM FELL English SC", serif'
+  },
+  components: {
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          '&.Mui-focused': {
+            borderColor: 'green' // Color when the TextField is focused
+          },
+          '&:hover': {
+            borderColor: 'blue' // Color when hovering
+          },
+          '& .MuiOutlinedInput-notchedOutline': {
+            borderColor: '#917136' // Default border color
+          }
+        }
+      }
+    }
   },
   palette: {
     primary: {
@@ -23,7 +40,7 @@ const theme = createTheme({
     },
     text: {
       primary: '#E6E6E6',
-      secondary: '#000000'
+      secondary: '#D5CAA0'
     }
   }
 });
@@ -38,7 +55,7 @@ function App() {
           <div className={styles['content']}>
             <Routes>
               <Route index element={<Home />} />
-              <Route path="/characters" element={<Characters/>} />
+              <Route path="/character-basics" element={<CharacterBasics />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
