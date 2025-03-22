@@ -1,0 +1,24 @@
+
+.image {
+    padding: 8pt;
+}
+
+.name {
+    margin-left: 8pt;
+    font-family: 'IM Fell English SC', serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 15pt;
+    text-align: left;
+    color:#D5CAA0;
+}
+
+.clazz {
+    margin-left: 8pt;
+    font-family: 'Crimson Pro', serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 12pt;
+    text-align: left;
+    color: #C4BFBD;
+}
